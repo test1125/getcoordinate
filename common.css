@@ -1,0 +1,27 @@
+body{
+    margin:0;
+}
+main{
+    display: flex;
+
+}
+.menu{
+    width: fit-content;
+    margin: 0;
+    /* background-color: rgb(145, 145, 145); */
+    color: white;
+    border-right: 3px solid black;
+}
+.contents{
+    width: 78%;
+    margin: 0 2%;
+
+}
+a{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin: 0 10px;
+    padding: 10px 30px;
+    border-bottom: 1px solid lightgrey;
+}
