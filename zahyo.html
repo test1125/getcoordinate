@@ -6,53 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>座標算出</title>
     <link rel="stylesheet" href="zahyo.css">
-    <link rel="stylesheet" href="common.css">
+    <!-- <link rel="stylesheet" href="common.css"> -->
 </head>
 <body>
-    <header>ツール</header>
+    <!-- <header>ツール</header> -->
     <main>   
         <div class="menu">
-            <a href="coordinate.html">座標の取得方法</a>
+            <!-- <a href="coordinate.html">座標の取得方法</a> -->
         </div>
+        <h1>座標算出</h1>        
         <div class="contents">
-            <h1>座標算出</h1>
-            <div id="form-container">
-                <h2>入力</h2>
-                <p>外枠の座標を入力、または、ボックス内のすべての座標を入力してください</p>
-                <form>
-                    <p>値をカンマ区切りで入力してください</p>
-                    <h3>値の入力</h3>
-                    <label for="X">X:</label>
-                    <input type="text" name="X">
-                    <label for="Y">Y:</label>
-                    <input type="text" name="Y">
-                    <div class="line">OR</div>
-                    <h3>CSVファイルのアップロード</h3>
-                    <input id="upload-file" type="file">
-                    <button id="reset-file" type="button">選択を解除</button>
-                    <button id="set-data" type="button">送信</button>
-                </form>
+            <p class="error_msg">コメント：<span></span></p>
+            <div id="input">
+                <div id="form-container">
+                    <form>
+                        <h2>Step1</h2>
+                        <div class="indent">
+                            <h3>値の入力</h3>
+                            <label for="X">X:</label>
+                            <input type="text" name="X" placeholder="1,2" value="1,2">
+                            <label for="Y">Y:</label>
+                            <input type="text" name="Y" placeholder="3,4" value="3,4">
+                            <div class="line">OR</div>
+                            <h3>CSVファイルのアップロード</h3>
+                            <input id="upload-file" type="file">
+                            <button id="reset-file" type="button">選択を解除</button>
+                        </div>
+                        <h2>Step2</h2>
+                        <div class="indent">
+                            <label for="cell">セル:</label>
+                            <input name="cell" type="text" placeholder="A1,B1" value="A1,B1">
+                            <button id="set-data" type="button">送信</button>
+                        </div>
+                        
+                    </form>
+                </div>
             </div>
-            
-            
-            <h2>結果</h2>
+            <div id="result">
+                <h2>結果</h2>
                 <div id="big_box" class="square">
-                    <div class="angle1 coordinate"><div>(0, 0)</div></div>
-                    <div class="angle2 coordinate"><div>(0, 0)</div></div>
-                    <div class="angle3 coordinate"><div>(0, 0)</div></div>
-                    <div class="angle4 coordinate"><div>(0, 0)</div></div>
+                    <div class="corner1 coordinate"><div>(0, 0)</div></div>
+                    <div class="corner2 coordinate"><div>(0, 0)</div></div>
+                    <div class="corner3 coordinate"><div>(0, 0)</div></div>
+                    <div class="corner4 coordinate"><div>(0, 0)</div></div>
                     <div>
                         <div id="small_box" class="square">
-                            <div class="angle1 coordinate"><div>(0, 0)</div></div>
-                            <div class="angle2 coordinate"><div>(0, 0)</div></div>
-                            <div class="angle3 coordinate"><div>(0, 0)</div></div>
-                            <div class="angle4 coordinate"><div>(0, 0)</div></div>
+                            <div class="corner1 coordinate"><div>(0, 0)</div></div>
+                            <div class="corner2 coordinate"><div>(0, 0)</div></div>
+                            <div class="corner3 coordinate"><div>(0, 0)</div></div>
+                            <div class="corner4 coordinate"><div>(0, 0)</div></div>
                         </div>
                     </div>                
                 </div>
-            式
-            <p id="formula"></p>
-            <button>コピー</button>
+                <div id="formula">
+                    Excel式
+                    <p></p>
+                    <button id="get-formula">コピー</button>
+                </div>
+                
+            </div>           
         </div>
     </main>
     <header></header>

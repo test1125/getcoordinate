@@ -1,14 +1,56 @@
-header{
+* {
+    margin:0;
+    padding:0;
+}
+/* header{
     background-color: grey;
+} */
+.contents{
+    height: 95%;
+    /* padding: 10px 30px 30px 30px; */
+    display:flex;
+    flex-wrap: wrap;
+}
+.error_msg{
+    width: 100%;
+    margin:0 1%;
+    padding: 1%;
+    height: 5%;
+    background-color: rgb(241, 17, 55);
+}
+#input{
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+    background-color: lightblue;
+}
+#result{
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+    background-color: rgb(251, 221, 116)
 }
 h1{
     text-align: center;
+    height: 5%;
 }
-#form-container{
+h2{
+    /* color: rgb(207, 40, 40); */
+
+    padding: 10px;
+}
+h3{
+    padding: 20px 0;
+}
+
+.indent{
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+/* #form-container{
     background-color: lightblue;
-    padding: 20px;
-    /* text-align: center; */
-}
+    padding: 0 10px 10px 10px;
+} */
 input{
     display: block;
     margin-bottom: 20px;
@@ -20,7 +62,7 @@ input{
 }
 .line::before,
 .line::after {
-    background-color: black;
+    background-color: grey;
     content:'';
     height: 1px;
     flex-grow: 1;
@@ -45,35 +87,36 @@ button {
 #set-data:hover{
     background-color:rgb(36, 112, 205)
 }
+
 #big_box{
     /* display: flex; */
     position:relative;
-    margin: 100px 100px;
+    margin: 20px auto;
     justify-content: center;
     align-items: center; 
     height: 300px;
     width: 300px;
 }
-.angle1{
+.corner1{
     top: -60px;
     left: -200px;
     display: flex;
     justify-content: end;
     align-items: flex-end;
 }
-.angle2{
+.corner2{
     top: -60px;
     right: -200px;
     display: flex;
     align-items: flex-end;
 }
-.angle3{
+.corner3{
     bottom: -60px;
     left: -200px;
     display: flex;
     justify-content: end;
 }
-.angle4{
+.corner4{
     bottom: -60px;
     right: -200px;
 }
@@ -98,7 +141,17 @@ button {
 .square{
     border: 1px solid rgb(165, 165, 165);
 }
-
-.red{
-    color: red;
+#formula{
+    margin-top:10%;
+}
+#get-formula{
+    border: none;
+    height: 35px;
+    width: 120px;
+    background-color: rgb(87, 153, 233);
+    color: white;
+    margin: 10px auto;
+}
+#get-formula:hover{
+    background-color:rgb(36, 112, 205);
 }
