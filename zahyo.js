@@ -11,12 +11,8 @@ const fileRsetbtn = document.querySelector('#reset-file');
 const copy = document.querySelector("#get-formula");
 
 input.addEventListener('change', (e)=>{
-  const reader = new FileReader();
-  let file = e.target.files[0];
-  submit.addEventListener('click' ,()=>{
-    csvToCoordinate(file, reader);
-    input.value="";
-  })
+  reader = new FileReader();
+  file = e.target.files[0];
 })
 
 fileRsetbtn.addEventListener('click', ()=>{
@@ -38,6 +34,7 @@ function csvToCoordinate(file, reader){
           y_array.push(array[i]);
         }
       }
+      input.value="";
       // let cordinate = `x_min:${Math.min(...x_array)}, x_max:${Math.max(...x_array)}, y_min:${Math.min(...y_array)}, y_max${Math.max(...y_array)}`
       // formula.insertAdjacentText('afterend', cordinate);
       commons(Math.min(...x_array),Math.max(...x_array),Math.min(...y_array),Math.max(...y_array));
@@ -122,7 +119,8 @@ function validation(X,Y,cells){
   error_msg.innerText="";
   if(input.value){
     if (input.value.split('.').pop() == "csv" ){
-      if( cells.value){
+      // console.log(input_cell.value);
+      if(input_cell.value){
         if(cells.length != 2){
           error("参照するセルは2つ必要です");
           return false
@@ -130,7 +128,7 @@ function validation(X,Y,cells){
           return true;
         }
       } else {
-        error("値の入力、CSVファイルのアップロードのいずれかが必要です。");
+        error("参照するセルを指定してください。");
         return false;
       }
     } else {
@@ -160,27 +158,14 @@ function validation(X,Y,cells){
   }
 } 
 
-// function validation(X,Y,cells){
-//   let check = true
-//   if(!((X && Y) || input.value)){
-//     error("値の入力、CSVファイルのアップロードのいずれかが必要です。");
-//     check = false;
-//   }else if ( !(X.length==2 && Y.length==2) ){
-//     error("")
-//   } else if (!input_cell.value){
-//     error("参照するセルを指定してください");
-//     check = false;
-//   } else if (input_cell.value.split(',').length != 2){
-//     error("")
-//   }
-//   return check;
-// }
 
 submit.addEventListener('click', ()=>{
   let X = input_X.value.split(',');
   let Y = input_Y.value.split(',');
   let cells = input_cell.value.split(',');
   if(validation(X,Y,cells)){
+    csvToCoordinate(file, reader);
+
     let [X1, X2, Y1, Y2] = inputToCoordiante();
     commons(X1,X2,Y1,Y2);
   }
