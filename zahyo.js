@@ -125,7 +125,8 @@ function validation(X,Y,cells){
           error("参照するセルは2つ必要です");
           return false
         } else {
-          return true;
+          csvToCoordinate(file, reader);
+          return false;
         }
       } else {
         error("参照するセルを指定してください。");
@@ -164,8 +165,6 @@ submit.addEventListener('click', ()=>{
   let Y = input_Y.value.split(',');
   let cells = input_cell.value.split(',');
   if(validation(X,Y,cells)){
-    csvToCoordinate(file, reader);
-
     let [X1, X2, Y1, Y2] = inputToCoordiante();
     commons(X1,X2,Y1,Y2);
   }
