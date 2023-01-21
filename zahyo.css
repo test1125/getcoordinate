@@ -19,12 +19,14 @@
     background-color: rgb(241, 17, 55);
 }
 #input{
+    min-width: 500px;
     width: 46%;
     margin: 1%;
     padding: 1%;
     background-color: lightblue;
 }
 #result{
+    min-width: 500px;
     width: 46%;
     margin: 1%;
     padding: 1%;
